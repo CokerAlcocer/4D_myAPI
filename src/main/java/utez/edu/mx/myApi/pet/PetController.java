@@ -22,4 +22,22 @@ public class PetController {
     public ResponseEntity<?> findById(@PathVariable long id) {
         return petService.findById(id);
     }
+
+    // http://ip:port/api/pet
+    @PostMapping("")
+    public ResponseEntity<?> save(@RequestBody Pet pet) {
+        return petService.save(pet);
+    }
+
+    // http://ip:port/api/pet
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(@RequestBody Pet pet, @PathVariable long id) {
+        return petService.update(pet, id);
+    }
+
+    // http://ip:port/api/pet
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable long id) {
+        return petService.delete(id);
+    }
 }

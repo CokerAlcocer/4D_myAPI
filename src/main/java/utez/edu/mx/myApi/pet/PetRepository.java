@@ -9,4 +9,6 @@ import java.util.List;
 public interface PetRepository extends JpaRepository<Pet, Long> {
     List<Pet> findAll(); // Traer todos
     Pet findById(long id); // Traer uno
+    Pet save(Pet pet); // Insertar como para Actualizar
+    void deleteById(long id); //
 }

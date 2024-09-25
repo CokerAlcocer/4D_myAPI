@@ -1,6 +1,9 @@
 package utez.edu.mx.myApi.pet;
 
 import jakarta.persistence.*;
+import utez.edu.mx.myApi.type.Type;
+
+import java.util.List;
 
 @Entity
 @Table(name = "pet")
@@ -19,20 +22,26 @@ public class Pet {
     @Column(name = "weight", nullable = false)
     private double weight;
 
+    @ManyToOne
+    @JoinColumn(name = "id_type", nullable = false)
+    private Type type;
+
     public Pet() {
     }
 
-    public Pet(long id, String nickname, double height, double weight) {
+    public Pet(String nickname, double height, double weight, Type type) {
+        this.nickname = nickname;
+        this.height = height;
+        this.weight = weight;
+        this.type = type;
+    }
+
+    public Pet(long id, String nickname, double height, double weight, Type type) {
         this.id = id;
         this.nickname = nickname;
         this.height = height;
         this.weight = weight;
-    }
-
-    public Pet(String nickname, double height, double weight) {
-        this.nickname = nickname;
-        this.height = height;
-        this.weight = weight;
+        this.type = type;
     }
 
     public long getId() {
@@ -67,13 +76,11 @@ public class Pet {
         this.weight = weight;
     }
 
-    @Override
-    public String toString() {
-        return "Pet{" +
-                "id=" + id +
-                ", nickname='" + nickname + '\'' +
-                ", height=" + height +
-                ", weight=" + weight +
-                '}';
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 }
