@@ -1,7 +1,8 @@
-package utez.edu.mx.myApi.ejercicio1;
+package utez.edu.mx.myApi.ejercicio1.department;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import utez.edu.mx.myApi.ejercicio1.Employee;
 
 import java.util.List;
 

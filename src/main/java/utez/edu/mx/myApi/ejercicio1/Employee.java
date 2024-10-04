@@ -3,6 +3,7 @@ package utez.edu.mx.myApi.ejercicio1;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import utez.edu.mx.myApi.ejercicio1.bill.Bill;
+import utez.edu.mx.myApi.ejercicio1.department.Department;
 
 import java.util.List;
 
