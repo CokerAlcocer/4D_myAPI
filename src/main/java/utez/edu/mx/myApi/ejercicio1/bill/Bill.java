@@ -1,7 +1,7 @@
 package utez.edu.mx.myApi.ejercicio1.bill;
 
 import jakarta.persistence.*;
-import utez.edu.mx.myApi.ejercicio1.Employee;
+import utez.edu.mx.myApi.ejercicio1.employee.Employee;
 
 @Entity
 @Table(name = "bill")
