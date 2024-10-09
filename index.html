@@ -36,8 +36,8 @@
     </nav>
     <main class="m-5">
         <section class="d-flex align-items-center">
-            <h3 class="m-0">Gestión de mascotas</h3>
-            <button class="btn btn-outline-success ms-auto" type="button" data-bs-target="#saveModal" data-bs-toggle="modal">Nuevo registro</button>
+            <h3 class="m-0">Gestión de empleados</h3>
+            <button class="btn btn-outline-success ms-auto" type="button" data-bs-target="#saveModal" data-bs-toggle="modal" onclick="loadData(true)">Nuevo registro</button>
         </section>
         <hr>
         <section>
@@ -46,29 +46,14 @@
                     <thead>
                         <tr class="table-dark">
                             <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Nombre completo</th>
+                            <th scope="col">Correo electrónico</th>
+                            <th scope="col">Departamento</th>
+                            <th scope="col" class="text-center">Acciones</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+                    <tbody id="tbody">
+                        
                     </tbody>
                 </table>
             </div>
@@ -82,22 +67,56 @@
                 <div class="modal-body">
                     <h4>Nuevo registro</h4>
                     <hr>
-                    <form class="row g-3">
+                    <form id="saveForm" class="row g-3">
                         <div class="col-12">
-                            <label for=""><small>Nombre completo</small></label>
-                            <input type="text" class="form-control">
+                            <label for="fullName"><small>Nombre completo</small></label>
+                            <input type="text" id="fullName" name="fullName" class="form-control">
                         </div>
                         <div class="col-12">
-                            <label for=""><small>Correo electrónico</small></label>
-                            <input type="text" class="form-control">
+                            <label for="eMail"><small>Correo electrónico</small></label>
+                            <input type="text" id="eMail" name="eMail" class="form-control">
                         </div>
                         <div class="col-12">
-                            <label for=""><small>Departamento</small></label>
-                            <select name="" id="" class="form-select"></select>
+                            <label for="departments"><small>Departamento</small></label>
+                            <select name="departments" id="departments" class="form-select">
+                                
+                            </select>
                         </div>
                         <div class="col-12 text-end">
-                            <button class="btn btn-outline-secondary">Cerrar</button>
-                            <button class="btn btn-outline-success ms-2">Registrar</button>
+                            <button type="reset" data-bs-dismiss="modal" class="btn btn-outline-secondary">Cerrar</button>
+                            <button type="button" data-bs-dismiss="modal" onclick="save()" class="btn btn-outline-success ms-2">Registrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de actualización -->
+    <div class="modal fade" id="updateModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h4>Actualizar datos del empleado</h4>
+                    <hr>
+                    <form id="saveForm" class="row g-3">
+                        <div class="col-12">
+                            <label for="u_fullName"><small>Nombre completo</small></label>
+                            <input type="text" id="u_fullName" name="u_fullName" class="form-control">
+                        </div>
+                        <div class="col-12">
+                            <label for="u_eMail"><small>Correo electrónico</small></label>
+                            <input type="text" id="u_eMail" name="u_eMail" class="form-control">
+                        </div>
+                        <div class="col-12">
+                            <label for="u_departments"><small>Departamento</small></label>
+                            <select name="u_departments" id="u_departments" class="form-select">
+                                
+                            </select>
+                        </div>
+                        <div class="col-12 text-end">
+                            <button type="reset" data-bs-dismiss="modal" class="btn btn-outline-secondary">Cerrar</button>
+                            <button type="button" data-bs-dismiss="modal" onclick="update()" class="btn btn-outline-primary ms-2">Actualizar</button>
                         </div>
                     </form>
                 </div>
