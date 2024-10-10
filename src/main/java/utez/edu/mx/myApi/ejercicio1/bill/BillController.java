@@ -6,17 +6,24 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/bill")
+@CrossOrigin(origins = {"*"})
 public class BillController {
     @Autowired
     private BillService billService;
 
     @GetMapping("")
-    private ResponseEntity<?> findAll() {
+    public ResponseEntity<?> findAll() {
         return billService.findAll();
     }
 
+    // http://localhost:8080/api/bill/employee/id
+    @GetMapping("/employee/{id}")
+    public ResponseEntity<?> findByEmployeeId(@PathVariable("id") long id) {
+        return billService.findByEmployeeId(id);
+    }
+
     @PostMapping("")
-    private ResponseEntity<?> save(@RequestBody Bill bill) {
+    public ResponseEntity<?> save(@RequestBody Bill bill) {
         return billService.save(bill);
     }
 }

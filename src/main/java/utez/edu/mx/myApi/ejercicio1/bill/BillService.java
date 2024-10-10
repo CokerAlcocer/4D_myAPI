@@ -25,6 +25,18 @@ public class BillService {
         return new ResponseEntity<>(body, HttpStatus.OK);
     }
 
+    @Transactional(readOnly = true)
+    public ResponseEntity<?> findByEmployeeId(long id) {
+        Map<String, Object> body = new HashMap<>();
+        Bill found = billRepository.findByEmployeeId(id);
+
+        body.put("message", found == null ? "El empleado no tiene una nómina" : "Operación exitosa");
+        body.put("status", "OK");
+        body.put("code", 200);
+        body.put("data", found);
+        return new ResponseEntity<>(body, HttpStatus.OK);
+    }
+
     @Transactional(rollbackFor = {SQLException.class, Exception.class})
     public ResponseEntity<?> save(Bill b) {
         Map<String, Object> body = new HashMap<>();
