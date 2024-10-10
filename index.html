@@ -99,7 +99,7 @@
                 <div class="modal-body">
                     <h4>Actualizar datos del empleado</h4>
                     <hr>
-                    <form id="saveForm" class="row g-3">
+                    <form id="updateForm" class="row g-3">
                         <div class="col-12">
                             <label for="u_fullName"><small>Nombre completo</small></label>
                             <input type="text" id="u_fullName" name="u_fullName" class="form-control">
@@ -119,6 +119,27 @@
                             <button type="button" data-bs-dismiss="modal" onclick="update()" class="btn btn-outline-primary ms-2">Actualizar</button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de eliminación -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h4>AVISO</h4>
+                    <hr>
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <p>¿Está seguro de que quiere realizar esta operación? <span class="fw-bold">Esta acción es irreversible.</span></p>
+                        </div>
+                        <div class="col-12 text-end">
+                            <button type="button" data-bs-dismiss="modal" onclick="remove()" class="btn btn-outline-danger">Eliminar</button>
+                            <button type="button" data-bs-dismiss="modal" class="btn btn-outline-secondary ms-2">Cancelar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
